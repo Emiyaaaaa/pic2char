@@ -8,12 +8,20 @@ from urllib.request import urlretrieve
 from setting import *
 
 class pic2str():
+
     def get_img(self):
         if PICTURE_PATH[:4] == 'http':
             urlretrieve(PICTURE_PATH, 'cache/cache.jpg')
             self.img_path = 'cache/cache.jpg'
         else:
             self.img_path = PICTURE_PATH
+        try:
+            self.width = WIDTH
+        except:
+            im = Image.open(self.img_path)
+            self.width = int(HEIGHT * im.size[0]/im.size[1]*2.14)
+        finally:
+            self.height = HEIGHT
 
     def get_char(self,r,g,b,alpha=255):
         ascii_char = list(r"@$B%&W%M#*XhkbdpqwmZO0QLCJUYoazcvunxrjft/|()1{}[[-_+~<>i!lI;:,^`'.  ")
@@ -29,13 +37,13 @@ class pic2str():
 
         self.get_img()
         im = Image.open(self.img_path)
-        im = im.resize((WIDTH, HEIGHT), Image.NEAREST)
-        txt = 'console.log("'
-        for i in range(HEIGHT):
-            for j in range(WIDTH):
+        im = im.resize((self.width, self.height), Image.NEAREST)
+        txt = 'function console_out(){console.log("'
+        for i in range(self.height):
+            for j in range(self.width):
                 txt += self.get_char(*im.getpixel((j, i)))
             txt = txt + '\\n\\\n'
-        txt += '")'
+        txt += '");}'
         with open('console_out.js', 'w') as f:
             f.write(txt)
 
@@ -43,19 +51,19 @@ class pic2str():
 
         self.get_img()
         im = Image.open(self.img_path)
-        im = im.resize((WIDTH, HEIGHT), Image.NEAREST)
-        q_txt = ''
+        im = im.resize((self.width, self.height), Image.NEAREST)
+        q_txt = '\\n\\\n'
         css_txt = ''
         try:
             font_size = str(ColorfulModeFontSize) + 'px;'
         except:
             font_size = ''
-        for i in range(HEIGHT):
-            for j in range(WIDTH):
+        for i in range(self.height):
+            for j in range(self.width):
                 css_txt += ',"background-color:white;'+font_size+'color:rgb'+str(im.getpixel((j, i)))+'"'
                 q_txt += "%c"+ColorfulModeChar
             q_txt = q_txt + '\\n\\\n'
-        txt = 'console.log('+'"'+q_txt+'"'+css_txt+')'
+        txt = 'function console_out(){console.log('+'"'+q_txt+'"'+css_txt+');}'
         with open('console_out.js', 'w') as f:
             f.write(txt)
 

@@ -5,10 +5,11 @@
 
 MODEL = 'ColorfulMode'# NormalMode,ColorfulMode
 
-PICTURE_PATH = r'test.jpg'# You can use local picture or internet picture
+PICTURE_PATH = r'test.jpg'
 
 HEIGHT = 105
-WIDTH = 150 # Usually,width = 1.5 * height
+# WIDTH =
+# You don't have to set WIDTH
 
-ColorfulModeChar = '@' # recommend character: # , @ , & ,or representative character of your website
+ColorfulModeChar = '@' # Don't set '%' !!!  Recommend character: # , @ , & ,or representative character of your website.
 # ColorfulModeFontSize = 1
