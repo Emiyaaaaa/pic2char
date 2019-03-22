@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://E:/python/personalweb/.idea/personalweb.iml" filepath="E:/python/personalweb/.idea/personalweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pic2str.iml" filepath="$PROJECT_DIR$/.idea/pic2str.iml" />
+      <module fileurl="file://E:/python/untitled/spider/.idea/spider.iml" filepath="E:/python/untitled/spider/.idea/spider.iml" />
+      <module fileurl="file://E:/python/untitled/草稿箱/.idea/草稿箱.iml" filepath="E:/python/untitled/草稿箱/.idea/草稿箱.iml" />
+    </modules>
+  </component>
+</project>
