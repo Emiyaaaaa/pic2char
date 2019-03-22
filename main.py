@@ -5,10 +5,8 @@
 
 from PIL import Image
 from urllib.request import urlretrieve
-import os
 from setting import *
 
-#网络图片
 class pic2str():
     def get_img(self):
         if PICTURE_PATH[:4] == 'http':
@@ -31,31 +29,43 @@ class pic2str():
 
         self.get_img()
         im = Image.open(self.img_path)
-        # im=im.convert('1')
-        # im=im.convert('RGB')
         im = im.resize((WIDTH, HEIGHT), Image.NEAREST)
-        txt = ""
+        txt = 'console.log("'
         for i in range(HEIGHT):
             for j in range(WIDTH):
                 txt += self.get_char(*im.getpixel((j, i)))
             txt = txt + '\\n\\\n'
-        print(txt)
+        txt += '")'
+        with open('console_out.js', 'w') as f:
+            f.write(txt)
 
     def colorfulMode(self):
-        print(1)
 
-    def mixMode(self):
-        print(1)
+        self.get_img()
+        im = Image.open(self.img_path)
+        im = im.resize((WIDTH, HEIGHT), Image.NEAREST)
+        q_txt = ''
+        css_txt = ''
+        try:
+            font_size = str(ColorfulModeFontSize) + 'px;'
+        except:
+            font_size = ''
+        for i in range(HEIGHT):
+            for j in range(WIDTH):
+                css_txt += ',"background-color:white;'+font_size+'color:rgb'+str(im.getpixel((j, i)))+'"'
+                q_txt += "%c"+ColorfulModeChar
+            q_txt = q_txt + '\\n\\\n'
+        txt = 'console.log('+'"'+q_txt+'"'+css_txt+')'
+        with open('console_out.js', 'w') as f:
+            f.write(txt)
 
     def main(self):
+
         model_dict = {
             'ColorfulMode':self.colorfulMode,
-            'NormalMode':self.normalMode,
-            'MixMode':self.mixMode
+            'NormalMode':self.normalMode
         }
         model_dict[MODEL]()
 
-
 if __name__=='__main__':
-
     pic2str().main()

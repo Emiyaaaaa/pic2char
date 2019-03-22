@@ -3,11 +3,12 @@
 # @Author  : Li Haozheng
 # @Time    : 2019/3/22 16:26
 
-MODEL = 'ColorfulMode'# NormalMode,ColorfulMode,MixMode
+MODEL = 'ColorfulMode'# NormalMode,ColorfulMode
 
-PICTURE_PATH = r'C:\Users\Obama\Pictures\timg7.jpg'
+PICTURE_PATH = r'test.jpg'# You can use local picture or internet picture
 
-HEIGHT=105
-WIDTH=220
+HEIGHT = 105
+WIDTH = 150 # Usually,width = 1.5 * height
 
-ColorfulModeChar = '*'
+ColorfulModeChar = '@' # recommend character: # , @ , & ,or representative character of your website
+# ColorfulModeFontSize = 1
