@@ -3,13 +3,14 @@
 # @Author  : Li Haozheng
 # @Time    : 2019/3/22 16:26
 
-MODEL = 'ColorfulMode'# NormalMode,ColorfulMode
+MODEL = 'ColorfulMode' # NormalMode or ColorfulMode
 
-PICTURE_PATH = r'test.jpg'
+PICTURE_PATH = r'test.jpg' # You can set local picture or internet picture.
 
 HEIGHT = 105
 # WIDTH =
-# You don't have to set WIDTH
+# You don't have to set WIDTH.
 
 ColorfulModeChar = '@' # Don't set '%' !!!  Recommend character: # , @ , & ,or representative character of your website.
+
 # ColorfulModeFontSize = 1
