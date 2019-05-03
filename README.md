@@ -1,4 +1,4 @@
-## Converts images to colorful characters（Just apply to browser console）
+## Converts picture to colorful characters（Just apply to browser console）
 ### Runtime environment:
 * Python 3
 ### Python library:
