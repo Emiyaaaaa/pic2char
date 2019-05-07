@@ -5,7 +5,7 @@
 
 MODEL = 'ColorfulMode' # NormalMode or ColorfulMode
 
-PICTURE_PATH = r'test.jpg' # You can set local picture or internet picture.
+PICTURE_PATH = r'test.jpg' # Set local picture or internet picture.
 
 HEIGHT = 105
 # WIDTH =
