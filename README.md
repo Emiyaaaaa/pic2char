@@ -1,6 +1,6 @@
 ## Converts picture to colorful characters（Just apply to browser console）
 ### Runtime environment:
-* Python 3
+* Python 3.6
 ### Python library:
 * pillow v5.2.0
 * urllib3 v1.22
