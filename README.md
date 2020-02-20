@@ -1,10 +1,10 @@
-## Converts picture to colorful characters（Just apply to browser console）
-### Runtime environment:
+### 运行环境:
 * Python 3.6
-### Python library:
+### Python库:
 * pillow v5.2.0
 * urllib3 v1.22
-### How to use:
-1. Open 'setting.py' and change parameters.
-2. Run 'python main.py' in cmd, than you can get 'console_out.js'.
-3. Copy 'console_out.js' to your website directory and add '<script type="text/javascript" src="js/console_out.js">console_out();</script>' to the HTML head.
+### 使用:
+1. 打开 'setting.py' 设置参数
+2. 运行 'main.py'，可以得到一个文件'console_out.js'
+3. 将 'console_out.js' 复制到你的web目录中
+4. HTML中添加'<script src="console_out.js">console_out();</script>'
