@@ -34,47 +34,49 @@ class pic2str():
         return ascii_char[int(gray/unit)]
 
     # 黑白模式（大图更流畅）
-    def normalMode(self):
+    def grayMode(self):
         self.get_img()
         im = Image.open(self.img_path)
         im = im.resize((self.width, self.height), Image.NEAREST)
-        txt = 'function console_out(){console.log("'
+        txt = 'function grayModeConsoleOut(){console.log("'
         for i in range(self.height):
             for j in range(self.width):
                 txt += self.get_char(*im.getpixel((j, i)))
             txt = txt + '\\n\\\n'
-        txt += '");}'
-        with open('console_out.js', 'w') as f:
+        txt += '");}\
+                grayModeConsoleOut();'
+        with open('grayModeConsole.js', 'w') as f:
             f.write(txt)
 
     # 彩色模式
-    def colorfulMode(self):
+    def colorMode(self):
         self.get_img()
         im = Image.open(self.img_path)
         im = im.resize((self.width, self.height), Image.NEAREST)
         q_txt = '\\n\\\n'
         css_txt = ''
         try:
-            font_size = str(ColorfulModeFontSize) + 'px;'
+            font_size = str(ColorModeFontSize) + 'px;'
         except:
             font_size = ''
         for i in range(self.height):
             for j in range(self.width):
                 css_txt += ',"background-color:white;'+font_size+'color:rgb'+str(im.getpixel((j, i)))+'"'
-                q_txt += "%c"+ColorfulModeChar
+                q_txt += "%c"+ColorModeChar
             q_txt = q_txt + '\\n\\\n'
-        txt = 'function console_out(){\
+        txt = 'function colorModeConsoleOut(){\
                     console.log("'+q_txt+'"'+css_txt+');\
                     console.log("Make this: https://github.com/Emiyaaaaa/pic2char");\
-                }'
-        with open('console_out.js', 'w') as f:
+                }\
+                colorModeConsoleOut();'
+        with open('colorModeConsole.js', 'w') as f:
             f.write(txt)
 
     def main(self):
 
         model_dict = {
-            'ColorfulMode':self.colorfulMode,
-            'NormalMode':self.normalMode
+            'ColorMode':self.colorMode,
+            'GrayMode':self.grayMode
         }
         model_dict[MODEL]()
 
