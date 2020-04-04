@@ -16,7 +16,8 @@ class pic2str():
         else:
             self.img_path = PICTURE_PATH
         try:
-            self.width = WIDTH
+            if WIDTH:
+                self.width = WIDTH
         except:
             im = Image.open(self.img_path)
             self.width = int(HEIGHT * im.size[0]/im.size[1]*2.14)
@@ -29,12 +30,11 @@ class pic2str():
             return ' '
         length = len(ascii_char)
         gray = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
-
         unit = (256.0 + 1)/length
         return ascii_char[int(gray/unit)]
 
+    # 黑白模式（大图更流畅）
     def normalMode(self):
-
         self.get_img()
         im = Image.open(self.img_path)
         im = im.resize((self.width, self.height), Image.NEAREST)
@@ -47,8 +47,8 @@ class pic2str():
         with open('console_out.js', 'w') as f:
             f.write(txt)
 
+    # 彩色模式
     def colorfulMode(self):
-
         self.get_img()
         im = Image.open(self.img_path)
         im = im.resize((self.width, self.height), Image.NEAREST)
@@ -63,7 +63,10 @@ class pic2str():
                 css_txt += ',"background-color:white;'+font_size+'color:rgb'+str(im.getpixel((j, i)))+'"'
                 q_txt += "%c"+ColorfulModeChar
             q_txt = q_txt + '\\n\\\n'
-        txt = 'function console_out(){console.log('+'"'+q_txt+'"'+css_txt+');}'
+        txt = 'function console_out(){\
+                    console.log("'+q_txt+'"'+css_txt+');\
+                    console.log("Make this: https://github.com/Emiyaaaaa/pic2char");\
+                }'
         with open('console_out.js', 'w') as f:
             f.write(txt)
 
