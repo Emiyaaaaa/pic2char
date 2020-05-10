@@ -3,7 +3,7 @@
 # @Author  : Li Haozheng
 # @Time    : 2019/3/22 16:26
 
-MODEL = 'GrayMode' # GrayMode or ColorMode
+MODEL = 'ColorMode' # GrayMode or ColorMode
 
 PICTURE_PATH = r'test.jpg' # Set local picture or internet picture.
 
