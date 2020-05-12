@@ -5,12 +5,16 @@
 
 MODEL = 'ColorMode' # GrayMode or ColorMode
 
-PICTURE_PATH = r'test.jpg' # Set local picture or internet picture.
+PICTURE_PATH = r'emiya.jpg' # Set local picture or internet picture.
 
-HEIGHT = 40
+OUTPUT_PATH = 'consolePicture.js'
+
+HEIGHT = 55
 # WIDTH =
-# You don't have to set WIDTH.
+# WIDTH is not necessary.
 
-ColorModeChar = '@' # Don't set '%' ! Recommend character: '#', '@', '&'.
+ColorModeChar = 'EMIYA' # Don't set '%' ! Recommend character: '#', '@', '&'.
 
-# ColorModeFontSize = 1
+ColorModeFontSize = 10 # minimum size is 10 ,default size is 12
+
+BackgroundColor = '#ffffff'
